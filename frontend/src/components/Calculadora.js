@@ -22,7 +22,7 @@ class Calculadora extends Component {
         event.preventDefault();
         try {
             
-            const res =await axios.put('http://localhost:8080/api/'+this.state.operacao, {
+            const res =await axios.put('api/'+this.state.operacao, {
                 "a": this.state.valorA,
                 "b": this.state.valorB
             },{
@@ -30,7 +30,7 @@ class Calculadora extends Component {
                 "content-type": "application/json",
                 },
             });
-            alert("O resultado da sua conta é :"+ res.data.result);
+            alert("O resultado da sua conta é: "+ res.data.result);
             
         } catch (error) {
             alert('operação inválida');    
@@ -57,7 +57,7 @@ class Calculadora extends Component {
                             value={this.state.valorB}
                             onChange={this.myChangeHandler}
     					/>
-                        <div class="input-field col s12">
+                        <div className="input-field col s12">
                             <select 
                             className="browser-default"
                             name="operacao"
